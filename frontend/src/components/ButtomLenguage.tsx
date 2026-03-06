@@ -16,6 +16,7 @@ function ButtonLanguage() {
     <button
       onClick={toggleLanguage}
       style={{ display: "flex", alignItems: "center", gap: "8px" }}
+      className="transition-all transform hover:scale-105"
     >
       {/*Se cambia la imagen según el idioma */}
       <img

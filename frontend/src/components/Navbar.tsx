@@ -15,10 +15,10 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
+    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-white/10">
       <div className="container mx-auto flex justify-between items-center p-3">
         {/* Logo Section */}
-        <div className="flex items-center gap-3 group cursor-pointer pl-4">
+        <div className="flex items-center gap-3 group cursor-pointer pl-10">
           <div className="overflow-hidden rounded-lg">
             <img
               className="w-13 h-13 object-contain transition-transform group-hover:scale-110"
@@ -59,11 +59,11 @@ function Navbar() {
 
         {/* Actions Section */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <div className="hidden xs:block">
+          <div className="hidden md:block">
             <ButtomLenguage />
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block pr-10">
             <Button>{t("products")}</Button>
           </div>
 
