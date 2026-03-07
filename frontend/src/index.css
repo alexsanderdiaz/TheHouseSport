@@ -1,8 +1,7 @@
 @font-face {
-  font-family: RubikBold;
-  src: url("../src/assets/fonts/Rubik-ExtraBold.ttf");
+  font-family: Rubik;
+  src: url("../src/assets/fonts/Rubik-Regular.ttf");
 }
-
 @font-face {
   font-family: Inter;
   src: url("../src/assets/fonts/Inter_18pt-Bold.ttf");
@@ -11,6 +10,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-rubikbold: RubikBold, "sans-serif";
+  --color-primary: #ff6900;
+  --color-secondary: #0096ff;
+  --font-primary: Rubik, "sans-serif";
   --font-inter: Inter, "sans-serif";
 }

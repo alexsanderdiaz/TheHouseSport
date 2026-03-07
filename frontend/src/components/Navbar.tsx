@@ -15,12 +15,12 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-white/10">
+    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur ">
       <div className="container mx-auto flex justify-between items-center p-2">
         {/* Logo Section */}
-        <div className="flex items-center gap-3 group cursor-pointer pl-7">
+        <div className="flex items-center gap-3 group cursor-pointer">
           <img
-            className="w-40 object-contain transition-transform group-hover:scale-105"
+            className="w-40 object-contain transition-transform hover:scale-105"
             src="/logo-dark.png"
             alt="logo"
           />
@@ -33,7 +33,7 @@ function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm font-medium text-gray-300 hover:text-orange-500 transition-colors duration-300 uppercase tracking-wider"
+                  className="text-sm font-primary text-gray-300 hover:text-primary transition-colors duration-300 uppercase tracking-wider"
                 >
                   {link.name}
                 </a>
@@ -48,7 +48,7 @@ function Navbar() {
             <ButtomLenguage />
           </div>
 
-          <div className="hidden md:block pr-7">
+          <div className="hidden md:block">
             <Button>{t("products")}</Button>
           </div>
 
