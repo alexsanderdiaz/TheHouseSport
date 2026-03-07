@@ -16,29 +16,14 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-white/10">
-      <div className="container mx-auto flex justify-between items-center p-3">
+      <div className="container mx-auto flex justify-between items-center p-2">
         {/* Logo Section */}
-        <div className="flex items-center gap-3 group cursor-pointer pl-10">
-          <div className="overflow-hidden rounded-lg">
-            <img
-              className="w-13 h-13 object-contain transition-transform group-hover:scale-110"
-              src="/logo.png"
-              alt="logo"
-            />
-          </div>
-          <div className="leading-tight">
-            <h2 className="text-sm font-light tracking-[0.2em] text-gray-400 uppercase">
-              The House
-            </h2>
-            <div className="flex items-baseline gap-1">
-              <span className="text-xl font-bold text-white tracking-tight">
-                SPORT
-              </span>
-              <span className="text-2xl font-black text-orange-500 italic font-rubikbold">
-                GYM
-              </span>
-            </div>
-          </div>
+        <div className="flex items-center gap-3 group cursor-pointer pl-7">
+          <img
+            className="w-40 object-contain transition-transform group-hover:scale-105"
+            src="/logo-dark.png"
+            alt="logo"
+          />
         </div>
 
         {/* Menu Section - Desktop */}
@@ -63,7 +48,7 @@ function Navbar() {
             <ButtomLenguage />
           </div>
 
-          <div className="hidden md:block pr-10">
+          <div className="hidden md:block pr-7">
             <Button>{t("products")}</Button>
           </div>
 
