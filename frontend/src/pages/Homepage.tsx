@@ -1,12 +1,11 @@
-import Home from "../components/Home";
-import Footer from "../components/Footer";
+import Home from "../components/sections/Home";
+import Locations from "../components/sections/Locations";
 
 function Homepage() {
   return (
     <div className="Homepage">
       <Home />
-      <h1>Welcome to The House Sport!</h1>
-      <Footer></Footer>
+      <Locations />
     </div>
   );
 }

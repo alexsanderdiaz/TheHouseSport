@@ -1,0 +1,91 @@
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
+import { RxDotFilled } from "react-icons/rx";
+import { locations } from "../../data/locations";
+import ButtonSecondary from "../UI/ButtonSecondary";
+
+function Locations() {
+  const { t } = useTranslation("locations");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  {
+    /* Funciones para navegación del slider */
+  }
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? locations.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === locations.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex: number) => {
+    setCurrentIndex(slideIndex);
+  };
+
+  return (
+    <section id="locations" className="bg-black py-10 md:py-16 px-4">
+      {/* Contenedor principal */}
+      <div className="container h-[300px] md:h-[500px] lg:h-[600px] m-auto relative group">
+        {/* Título */}
+        <div className="mb-6 md:mb-8 text-center justify-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-black text-white uppercase italic">
+            {t("our")} <span className="text-secondary">{t("title")}</span>
+          </h2>
+        </div>
+
+        {/* Contenedor de la Imagen */}
+        <div
+          style={{ backgroundImage: `url(${locations[currentIndex].url})` }}
+          className="w-full h-full rounded-2xl bg-center bg-cover duration-500 relative border"
+        >
+          {/* Overlay informativo */}
+          <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white">
+            <h3 className="text-xl md:text-3xl font-bold uppercase tracking-wider italic">
+              {locations[currentIndex].name}
+            </h3>
+            <h6 className="text-sm md:text-lg text-gray-300 font-medium">
+              {locations[currentIndex].addressKey}
+            </h6>
+            <ButtonSecondary> {t("check")} </ButtonSecondary>
+          </div>
+
+          {/* Dots de navegación */}
+          <div className="absolute bottom-4 left-0 w-full flex justify-center gap-1 z-20 py-2">
+            {locations.map((_, slideIndex) => (
+              <div
+                key={slideIndex}
+                onClick={() => goToSlide(slideIndex)}
+                className={`text-3xl cursor-pointer transition-transform duration-300 hover:scale-125 ${
+                  slideIndex === currentIndex
+                    ? "text-secondary scale-110"
+                    : "text-white/60"
+                }`}
+              >
+                <RxDotFilled />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Flecha Izquierda */}
+        <div className="flex md:hidden group-hover:flex absolute top-[50%] -translate-y-[-50%] left-4 md:left-8 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer hover:bg-secondary transition-all z-20">
+          <BsChevronCompactLeft onClick={prevSlide} size={25} />
+        </div>
+
+        {/* Flecha Derecha */}
+        <div className="flex md:hidden group-hover:flex absolute top-[50%] -translate-y-[-50%] right-4 md:right-8 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer hover:bg-secondary transition-all z-20">
+          <BsChevronCompactRight onClick={nextSlide} size={25} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Locations;

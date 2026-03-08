@@ -1,5 +1,5 @@
-import videoBg from "../assets/video/videoBg.mp4";
-import ButtonSecondary from "./UI/ButtonSecondary";
+import videoBg from "../../assets/video/videoBg.mp4";
+import ButtonSecondary from "../UI/ButtonSecondary";
 import { useTranslation } from "react-i18next";
 
 function Home() {
@@ -7,6 +7,7 @@ function Home() {
 
   return (
     <section
+      id="home"
       className="relative w-full overflow-hidden 
       h-[50vh] 
       md:h-[400px]  
