@@ -29,31 +29,53 @@ function Locations() {
     setCurrentIndex(slideIndex);
   };
 
+  {
+    /* Sección Locations*/
+  }
+
   return (
     <section id="locations" className="bg-black py-10 md:py-16 px-4">
       {/* Contenedor principal */}
       <div className="container h-[300px] md:h-[500px] lg:h-[600px] m-auto relative group">
         {/* Título */}
-        <div className="mb-6 md:mb-8 text-center justify-center md:text-left">
-          <h2 className="text-2xl md:text-3xl font-black text-white uppercase italic">
+        <div className="mb-6 md:mb-8 flex justify-center text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic">
             {t("our")} <span className="text-secondary">{t("title")}</span>
           </h2>
         </div>
 
         {/* Contenedor de la Imagen */}
         <div
-          style={{ backgroundImage: `url(${locations[currentIndex].url})` }}
+          style={{ backgroundImage: `url(${locations[currentIndex].image})` }}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500 relative border"
         >
           {/* Overlay informativo */}
-          <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white">
-            <h3 className="text-xl md:text-3xl font-bold uppercase tracking-wider italic">
-              {locations[currentIndex].name}
-            </h3>
-            <h6 className="text-sm md:text-lg text-gray-300 font-medium">
-              {locations[currentIndex].addressKey}
-            </h6>
-            <ButtonSecondary> {t("check")} </ButtonSecondary>
+          <div className="absolute inset-0 flex flex-col justify-end items-center pb-12 md:pb-20 bg-gradient-to-t from-black/95 via-black/40 to-transparent text-white px-4">
+            {/* Contenedor de texto y botón centrados */}
+            <div className="flex flex-col items-center text-center space-y-4 max-w-2xl">
+              <div className="space-y-1">
+                <h4 className="text-xl md:text-4xl font-black uppercase tracking-tighter italic leading-none">
+                  {locations[currentIndex].name}
+                </h4>
+                <h6 className="text-sm md:text-xl text-gray-300 font-medium">
+                  {t(locations[currentIndex].addressKey)}
+                </h6>
+              </div>
+
+              {/* Botón */}
+              <div className="p-3">
+                <ButtonSecondary>
+                  {" "}
+                  <a
+                    href={locations[currentIndex].map}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("check")}
+                  </a>{" "}
+                </ButtonSecondary>
+              </div>
+            </div>
           </div>
 
           {/* Dots de navegación */}

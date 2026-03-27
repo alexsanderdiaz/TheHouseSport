@@ -26,9 +26,12 @@ function Home() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Contenido encima del video */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">{t("welcome")}</h1>
-        <p className="text-lg md:text-xl mb-6 max-w-2xl">{t("slogan")}</p>
+      <div className="absolute inset-0 flex px-5 flex-col items-center justify-center text-white text-center px-4">
+        <h1 className="text-6xl md:text-9xl font-black mb-4">
+          The House
+          <span className="text-secondary"> Sport</span>
+        </h1>
+        <p className="text-lg md:text-2xl mb-6 max-w-2xl">{t("slogan")}</p>
         <ButtonSecondary>{t("start")}</ButtonSecondary>
       </div>
     </section>
