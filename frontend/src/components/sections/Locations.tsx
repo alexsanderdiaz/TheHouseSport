@@ -1,33 +1,15 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { locations } from "../../data/locations";
 import ButtonSecondary from "../UI/ButtonSecondary";
+import { useSlider } from "../../hooks/useSlider";
 
 function Locations() {
   const { t } = useTranslation("locations");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  {
-    /* Funciones para navegación del slider */
-  }
-
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? locations.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-    const isLastSlide = currentIndex === locations.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (slideIndex: number) => {
-    setCurrentIndex(slideIndex);
-  };
+  const { currentIndex, nextSlide, prevSlide, goToSlide } = useSlider(
+    locations.length,
+  );
 
   {
     /* Sección Locations*/

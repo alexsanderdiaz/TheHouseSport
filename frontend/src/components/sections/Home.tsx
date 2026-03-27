@@ -27,7 +27,7 @@ function Home() {
 
       {/* Contenido encima del video */}
       <div className="absolute inset-0 flex px-5 flex-col items-center justify-center text-white text-center px-4">
-        <h1 className="text-6xl md:text-9xl font-black mb-4">
+        <h1 className="text-6xl md:text-8xl font-black mb-4">
           The House
           <span className="text-secondary"> Sport</span>
         </h1>
