@@ -15,3 +15,34 @@
   --font-primary: Rubik, "sans-serif";
   --font-inter: Inter, "sans-serif";
 }
+
+/* swiper */
+
+/* Ocultar flechas por defecto (Mobile) */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* Mostrar flechas solo en Escritorio (Equivalente a md:flex) */
+@media (min-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+    height: 45px !important;
+    border-radius: 50%;
+    color: white !important;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 18px !important; /* Tamaño de la flecha interna */
+    font-weight: bold;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    color: #ff6900 !important; /* Tu color de marca */
+    transform: scale(1.1);
+  }
+}

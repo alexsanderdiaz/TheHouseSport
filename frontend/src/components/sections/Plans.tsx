@@ -6,11 +6,11 @@ import { SwiperSlide } from "swiper/react";
 
 export default function Plans() {
   return (
-    <section id="plans" className="py-20 bg-black overflow-hidden">
+    <section id="plans" className="pt-10 bg-black overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic">
-            Nuestros <span className="text-secondary">Planes</span>
+            Nuestros <span className="text-primary">Planes</span>
           </h2>
         </div>
 
