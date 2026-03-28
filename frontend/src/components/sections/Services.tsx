@@ -2,39 +2,44 @@
 import { services } from "../../data/services";
 import ServiceCard from "../UI/ServiceCard";
 import CardSlider from "../UI/CardSlider";
-import { SwiperSlide } from "swiper/react"; // Importante: Necesitas esto aquí también
-import { useTranslation } from "react-i18next";
+import { SwiperSlide } from "swiper/react";
+import { Reveal } from "../UI/Reveal"; // Importamos el componente de animación
 
 export default function Services() {
-  const { t } = useTranslation();
-
   return (
-    <section id="services" className="py-20 bg-gray-100 overflow-hidden">
-      <div className="container mx-auto px-4">
-        {/* Encabezado */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-black uppercase italic tracking-tighter">
-            Nuestros{" "}
-            <span className="text-secondary">
-              {t("servicios", "Servicios")}
-            </span>
-          </h2>
-          <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
-        </div>
+    <section
+      id="services"
+      className="py-20 overflow-hidden relative bg-transparent"
+    >
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Envolvemos el encabezado con Reveal */}
+        <Reveal>
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-4">
+              Nuestros <span className="text-secondary">Servicios</span>
+            </h2>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              Soluciones integrales para tu evolución física. Todo lo que
+              necesitas para tu transformación en un solo lugar.
+            </p>
+            {/* Pequeño acento visual para separar del slider */}
+            <div className="w-16 h-1 bg-secondary/30 mx-auto mt-6 rounded-full" />
+          </div>
+        </Reveal>
 
-        {/* Slider de Servicios */}
-        <CardSlider>
-          {/* ELIMINAMOS el <div className="p-4"> que envolvía el map.
-             Swiper debe recibir los SwiperSlide directamente como hijos.
-          */}
-          {services.map((service) => (
-            <SwiperSlide key={service.id} className="py-4">
-              {/* py-4 aquí permite que las sombras de las cards no se corten */}
-              <ServiceCard service={service} />
-            </SwiperSlide>
-          ))}
-        </CardSlider>
+        {/* Envolvemos el CardSlider con Reveal */}
+        <Reveal>
+          <CardSlider>
+            {services.map((service) => (
+              <SwiperSlide key={service.id} className="py-8 !overflow-visible">
+                <ServiceCard service={service} />
+              </SwiperSlide>
+            ))}
+          </CardSlider>
+        </Reveal>
       </div>
+
+      {/* Se eliminó la decoración lateral fija para que luzca el fondo global */}
     </section>
   );
 }

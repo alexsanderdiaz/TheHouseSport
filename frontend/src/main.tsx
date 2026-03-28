@@ -9,6 +9,8 @@ import navbar_en from "./translations/en/navbar.json";
 import navbar_es from "./translations/es/navbar.json";
 import locations_en from "./translations/en/locations.json";
 import locations_es from "./translations/es/locations.json";
+import plans_en from "./translations/en/plans.json";
+import plans_es from "./translations/es/plans.json";
 import App from "./App.tsx";
 
 i18n.init({
@@ -19,11 +21,13 @@ i18n.init({
       home: home_en,
       navbar: navbar_en,
       locations: locations_en,
+      plans: plans_en,
     },
     es: {
       home: home_es,
       navbar: navbar_es,
       locations: locations_es,
+      plans: plans_es,
     },
   },
 });

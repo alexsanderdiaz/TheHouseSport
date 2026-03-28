@@ -1,5 +1,7 @@
 {
   "our": "Our",
   "title": "locations",
-  "check": "Check"
+  "description": "Spaces designed for your evolution. Find the nearest The House Sport location.",
+  "check": "Check",
+  "location": "Location"
 }

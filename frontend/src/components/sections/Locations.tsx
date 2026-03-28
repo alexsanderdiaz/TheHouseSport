@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
 import { locations } from "../../data/locations";
 import ButtonSecondary from "../UI/ButtonSecondary";
 import { useSlider } from "../../hooks/useSlider";
+import { Reveal } from "../UI/Reveal"; // Importamos el componente de animación
 
 function Locations() {
   const { t } = useTranslation("locations");
@@ -11,82 +11,108 @@ function Locations() {
     locations.length,
   );
 
-  {
-    /* Sección Locations*/
-  }
-
   return (
-    <section id="locations" className="bg-black py-10 md:py-16 px-4">
-      {/* Contenedor principal */}
-      <div className="container my-15 h-[300px] md:h-[500px] lg:h-[600px] m-auto relative group">
-        {/* Título */}
-        <div className="mb-6 md:mb-8 flex justify-center text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic">
-            {t("our")} <span className="text-secondary">{t("title")}</span>
-          </h2>
-        </div>
+    <section
+      id="locations"
+      className="py-20 px-4 overflow-hidden bg-transparent"
+    >
+      <div className="container mx-auto max-w-6xl">
+        {/* Envolvemos el Título y descripción */}
+        <Reveal>
+          <div className="text-center mb-12 p-5">
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter">
+              {t("our")}{" "}
+              <span className="text-secondary italic">{t("title")}</span>
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-lg mx-auto text-sm md:text-base">
+              {t("description")}
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Contenedor de la Imagen */}
-        <div
-          style={{ backgroundImage: `url(${locations[currentIndex].image})` }}
-          className="w-full h-full my-10 rounded-2xl bg-center bg-cover duration-500 relative border"
-        >
-          {/* Overlay informativo */}
-          <div className="absolute inset-0 flex flex-col justify-end items-center pb-12 md:pb-20 bg-gradient-to-t from-black/95 via-black/40 to-transparent text-white px-4">
-            {/* Contenedor de texto y botón centrados */}
-            <div className="flex flex-col items-center text-center space-y-4 max-w-2xl">
-              <div className="space-y-1">
-                <h4 className="text-xl md:text-4xl font-black uppercase tracking-tighter italic leading-none">
-                  {locations[currentIndex].name}
-                </h4>
-                <h6 className="text-sm md:text-xl text-gray-300 font-medium">
-                  {t(locations[currentIndex].addressKey)}
-                </h6>
+        {/* Envolvemos todo el Slider */}
+        <Reveal>
+          <div className="relative group h-[400px] md:h-[550px] lg:h-[650px] w-full">
+            {/* Imagen de Fondo con Transición Suave */}
+            <div
+              style={{
+                backgroundImage: `url(${locations[currentIndex].image})`,
+              }}
+              className="w-full h-full rounded-3xl bg-center bg-cover duration-700 relative border shadow-2xl overflow-hidden"
+            >
+              {/* Overlay de Gradiente */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-16 text-white">
+                  <div className="max-w-2xl space-y-4">
+                    <span className="bg-primary px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest">
+                      {t("location")}
+                    </span>
+
+                    <div className="space-y-2">
+                      <h4 className="text-3xl md:text-6xl font-black uppercase italic leading-none tracking-tighter">
+                        {locations[currentIndex].name}
+                      </h4>
+
+                      <h6 className="text-secondary text-xs md:text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+                        <span className="w-8 h-[1px] bg-secondary"></span>
+                        {t(locations[currentIndex].addressKey)}
+                      </h6>
+                    </div>
+
+                    <div className="pt-4">
+                      <a
+                        href={locations[currentIndex].map}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                      >
+                        <ButtonSecondary>{t("check")}</ButtonSecondary>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Botón */}
-              <div className="p-3">
-                <ButtonSecondary>
-                  {" "}
-                  <a
-                    href={locations[currentIndex].map}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t("check")}
-                  </a>{" "}
-                </ButtonSecondary>
+              {/* Dots */}
+              <div className="absolute bottom-6 right-6 flex gap-2 z-20">
+                {locations.map((_, slideIndex) => (
+                  <button
+                    key={slideIndex}
+                    onClick={() => goToSlide(slideIndex)}
+                    className={`transition-all duration-300 ${
+                      slideIndex === currentIndex
+                        ? "w-8 h-2 bg-secondary rounded-full"
+                        : "w-2 h-2 bg-white/40 rounded-full hover:bg-white/60"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
+
+            {/* Flechas de Navegación */}
+            <button
+              onClick={prevSlide}
+              className="absolute top-1/2 left-2 md:-left-8 -translate-y-1/2 
+               bg-black/30 backdrop-blur-md text-white 
+               p-2 md:p-4 rounded-full z-30 
+               border border-white/10 shadow-xl
+               hover:bg-secondary hover:text-white transition-all duration-300"
+            >
+              <BsChevronCompactLeft className="text-xl md:text-3xl" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute top-1/2 right-2 md:-right-8 -translate-y-1/2 
+               bg-black/30 backdrop-blur-md text-white 
+               p-2 md:p-4 rounded-full z-30 
+               border border-white/10 shadow-xl
+               hover:bg-secondary hover:text-white transition-all duration-300"
+            >
+              <BsChevronCompactRight className="text-xl md:text-3xl" />
+            </button>
           </div>
-
-          {/* Dots de navegación */}
-          <div className="absolute bottom-4 left-0 w-full flex justify-center gap-1 z-20 py-2">
-            {locations.map((_, slideIndex) => (
-              <div
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-                className={`text-3xl cursor-pointer transition-transform duration-300 hover:scale-125 ${
-                  slideIndex === currentIndex
-                    ? "text-secondary scale-110"
-                    : "text-white/60"
-                }`}
-              >
-                <RxDotFilled />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Flecha Izquierda */}
-        <div className="flex md:hidden group-hover:flex absolute top-[50%] -translate-y-[-50%] left-4 md:left-8 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer hover:bg-secondary transition-all z-20">
-          <BsChevronCompactLeft onClick={prevSlide} size={25} />
-        </div>
-
-        {/* Flecha Derecha */}
-        <div className="flex md:hidden group-hover:flex absolute top-[50%] -translate-y-[-50%] right-4 md:right-8 text-2xl rounded-full p-2 bg-black/50 text-white cursor-pointer hover:bg-secondary transition-all z-20">
-          <BsChevronCompactRight onClick={nextSlide} size={25} />
-        </div>
+        </Reveal>
       </div>
     </section>
   );
