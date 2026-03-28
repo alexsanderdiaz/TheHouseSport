@@ -13,7 +13,7 @@ interface PlanProps {
 }
 
 export default function PlanCard({ plan }: PlanProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation("plans");
 
   return (
     <div

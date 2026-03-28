@@ -10,16 +10,16 @@ export default function Plans() {
   const { t } = useTranslation("plans");
 
   return (
-    <section id="plans" className="py-10 overflow-hidden relative bg-gray-700">
+    <section id="plans" className="py-10 overflow-hidden relative bg-gray-600">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Envolvemos el Encabezado para que aparezca primero */}
+        {/* Reveal encabezado */}
         <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-5">
             <h2 className="text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter mb-6">
               {t("our")} <span className="text-primary">{t("plans")}</span>
             </h2>
 
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+            <p className="text-white text-base md:text-lg leading-relaxed">
               {t("description")}
             </p>
 
@@ -27,12 +27,12 @@ export default function Plans() {
           </div>
         </Reveal>
 
-        {/* Envolvemos el Slider para que aparezca justo después */}
+        {/* Reveal Slider */}
         <div className="relative">
           <Reveal>
             <CardSlider>
               {plans.map((plan) => (
-                <SwiperSlide key={plan.id} className="py-10 !overflow-visible">
+                <SwiperSlide key={plan.id} className="!overflow-visible">
                   <PlanCard plan={plan} />
                 </SwiperSlide>
               ))}

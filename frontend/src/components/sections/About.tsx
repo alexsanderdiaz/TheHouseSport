@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Reveal } from "../UI/Reveal";
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("about");
 
   return (
     <section
@@ -31,7 +31,8 @@ export default function About() {
                 {/* Badge con colores invertidos para que resalte en el fondo claro */}
                 <div className="absolute -bottom-6 -right-6 bg-zinc-950 p-6 rounded-xl z-20 hidden md:block shadow-2xl">
                   <p className="font-black text-3xl uppercase italic tracking-tighter text-white">
-                    Est. <span className="text-primary">2016</span>
+                    {t("established", "Est.")}{" "}
+                    <span className="text-primary">2022</span>
                   </p>
                 </div>
               </div>
@@ -46,10 +47,13 @@ export default function About() {
                   {t("about_subtitle", "Conoce The House Sport")}
                 </h4>
                 <h2 className="text-4xl md:text-6xl font-black uppercase italic mb-8 tracking-tighter leading-none text-zinc-950">
-                  DONDE LA <span className="text-secondary">DISCIPLINA</span> SE
-                  VELVE{" "}
+                  {t("where", "Donde la")}{" "}
+                  <span className="text-secondary">
+                    {t("discipline", "disciplina")}{" "}
+                  </span>
+                  {t("becomes", "se vuelve")}{" "}
                   <span className="underline decoration-primary decoration-4 underline-offset-8">
-                    HÁBITO
+                    {t("habit", "hábito")}
                   </span>
                 </h2>
 
