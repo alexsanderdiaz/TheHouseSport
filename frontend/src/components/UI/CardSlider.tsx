@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
 import { Swiper } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/swiper-bundle.css";
 
 interface CardSliderProps {
   children: React.ReactNode;
