@@ -96,7 +96,7 @@ function Navbar() {
             ))}
             <hr className="border-white/10 my-2" />
             <li className="flex flex-col gap-4">
-              <Button>{t("products")}</Button>
+              <Button href="/products">{t("products")}</Button>
               <div className="flex justify-center xs:hidden">
                 <ButtomLenguage />
               </div>
