@@ -4,7 +4,15 @@ import { useTranslation } from "react-i18next";
 
 function Home() {
   const { t } = useTranslation("home");
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "573222185574";
+    const customMessage =
+      "Hola, quiero empezar mi experiencia en The House Sport. ¿Podrían brindarme más información?";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage)}`;
 
+    // Abre WhatsApp en una pestaña nueva
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
   return (
     <section
       id="home"
@@ -44,7 +52,9 @@ function Home() {
           )}
         </p>
 
-        <Button variant="secondary">{t("start", "Comenzar ahora")}</Button>
+        <Button variant="secondary" onClick={handleWhatsAppClick}>
+          {t("start", "Comenzar ahora")}
+        </Button>
       </div>
     </section>
   );

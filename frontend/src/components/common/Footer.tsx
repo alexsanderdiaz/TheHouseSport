@@ -5,12 +5,19 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
   FaPhoneAlt,
+  FaTiktok,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
   const year = new Date().getFullYear();
+  const sections = [
+    { name: t("start"), href: "#home" },
+    { name: t("we"), href: "#about" },
+    { name: t("services"), href: "#services" },
+    { name: t("plans"), href: "#plans" },
+  ];
   const schedule = [
     { days: "mon_thu", hours: "05:00 - 22:00" },
     { days: "friday", hours: "05:00 - 21:00" },
@@ -63,38 +70,16 @@ export default function Footer() {
               {t("explore")}
             </h4>
             <ul className="space-y-4 text-gray-400 text-sm">
-              <li>
-                <a
-                  href="#home"
-                  className="hover:text-primary transition-colors"
-                >
-                  {t("start")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="hover:text-primary transition-colors"
-                >
-                  {t("we")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-primary transition-colors"
-                >
-                  {t("services")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#plans"
-                  className="hover:text-primary transition-colors"
-                >
-                  {t("plans")}
-                </a>
-              </li>
+              {sections.map((section, index) => (
+                <li key={index}>
+                  <a
+                    href={section.href}
+                    className="hover:text-zinc-100 transition-colors"
+                  >
+                    {section.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -158,7 +143,7 @@ export default function Footer() {
               href="https://tu-portfolio.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-primary transition-colors duration-300 font-bold"
+              className="text-white hover:text-secondary transition-colors duration-300 font-bold"
             >
               Alex Díaz
             </a>
