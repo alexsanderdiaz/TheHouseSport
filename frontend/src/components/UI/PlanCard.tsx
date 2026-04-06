@@ -14,14 +14,10 @@ interface PlanProps {
 
 export default function PlanCard({ plan }: PlanProps) {
   const { t } = useTranslation("plans");
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "573222185574";
-    const customMessage = `Hola! Escribo por los planes en la página web THS. Me interesa el *Plan ${plan.name}* por $${plan.price} pesos. Como puedo adquirirlo?`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage)}`;
+  const phoneNumber = "573222185574";
+  const customMessage = `Hola! Escribo por los planes en la página web THS. Me interesa el *Plan ${plan.name}* por $${plan.price} pesos. Como puedo adquirirlo?`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage)}`;
 
-    // Abre WhatsApp en una pestaña nueva
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-  };
   return (
     <div
       className={`relative w-full h-full rounded-[2rem] p-[1.5px] transition-all duration-500 hover:-translate-y-2 ${
@@ -86,7 +82,7 @@ export default function PlanCard({ plan }: PlanProps) {
         <Button
           variant={plan.recommended ? "primary" : "tertiary"}
           className="w-full mt-auto py-2 overflow-hidden"
-          onClick={handleWhatsAppClick}
+          href={whatsappUrl}
         >
           {t("choose", "Elegir Plan")}
         </Button>

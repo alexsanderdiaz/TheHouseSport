@@ -5,7 +5,6 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
   FaPhoneAlt,
-  FaTiktok,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 

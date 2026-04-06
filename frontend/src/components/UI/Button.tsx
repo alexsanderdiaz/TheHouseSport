@@ -1,12 +1,21 @@
 // src/components/UI/Button.tsx
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "tertiary";
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
-function Button({ children, className, variant = "primary", ...props }: Props) {
+function Button({
+  children,
+  className,
+  variant = "primary",
+  href,
+  ...props
+}: Props) {
   // Clases base que siempre tendrá el botón
   const baseClasses =
-    "px-4 py-1 rounded-full transition-all transform hover:scale-105 font-bold uppercase tracking-wider text-sm border-2";
+    "inline-flex items-center justify-center px-4 py-1 rounded-full transition-all transform hover:scale-105 font-bold uppercase tracking-wider text-sm border-2";
 
   // Clases específicas por variante
   const variants = {
@@ -16,11 +25,24 @@ function Button({ children, className, variant = "primary", ...props }: Props) {
       "bg-zinc-600 hover:bg-zinc-500 border-zinc-700 text-gray-100 hover:text-white",
   };
 
+  const combinedClasses = `${baseClasses} ${variants[variant]} ${className || ""}`;
+
+  // Si hay un href, renderizamos un <a> con estilos de botón
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={combinedClasses}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <button
-      className={`${baseClasses} ${variants[variant]} ${className}`}
-      {...props}
-    >
+    <button className={combinedClasses} {...props}>
       {children}
     </button>
   );

@@ -64,7 +64,10 @@ export default function About() {
                 {/* Stats Grid con diseño adaptado al fondo claro */}
                 <div className="grid grid-cols-2 gap-8">
                   {aboutStats.map((stat) => (
-                    <div className="border-l-4 border-primary pl-6 py-2 bg-white rounded-r-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div
+                      key={stat.label}
+                      className="border-l-4 border-primary pl-6 py-2 bg-white rounded-r-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                    >
                       <p className="text-4xl font-black text-zinc-900 mb-1">
                         {stat.value}
                       </p>
