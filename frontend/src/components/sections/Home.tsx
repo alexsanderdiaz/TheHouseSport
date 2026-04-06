@@ -49,7 +49,7 @@ function Home() {
           )}
         </p>
 
-        <Button href={whatsappUrl} variant="secondary">
+        <Button href={whatsappUrl} target="_blank" variant="secondary">
           {t("start", "Comenzar ahora")}
         </Button>
       </div>

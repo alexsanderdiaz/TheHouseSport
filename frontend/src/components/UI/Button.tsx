@@ -11,6 +11,7 @@ function Button({
   className,
   variant = "primary",
   href,
+  target,
   ...props
 }: Props) {
   // Clases base que siempre tendrá el botón
@@ -33,7 +34,7 @@ function Button({
       <a
         href={href}
         className={combinedClasses}
-        target="_blank"
+        target={target}
         rel="noopener noreferrer"
       >
         {children}

@@ -47,7 +47,7 @@ function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button>{t("products")}</Button>
+            <Button href="/products">{t("products")}</Button>
           </div>
 
           {/* DropDown Buttom */}

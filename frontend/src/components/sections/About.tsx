@@ -4,8 +4,9 @@ import { Reveal } from "../UI/Reveal";
 
 export default function About() {
   const { t } = useTranslation("about");
+  const year = new Date().getFullYear();
   const aboutStats = [
-    { label: "experience", value: "5+" },
+    { label: "experience", value: year - 2021 + "+" },
     { label: "members", value: "200+" },
     { label: "locations", value: "2" },
   ];
@@ -36,7 +37,7 @@ export default function About() {
                 <div className="absolute -bottom-6 -right-6 bg-zinc-950 p-6 rounded-xl z-20 hidden md:block shadow-2xl">
                   <p className="font-black text-3xl uppercase italic tracking-tighter text-white">
                     {t("established", "Est.")}{" "}
-                    <span className="text-primary">2022</span>
+                    <span className="text-primary">2021</span>
                   </p>
                 </div>
               </div>

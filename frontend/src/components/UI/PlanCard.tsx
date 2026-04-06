@@ -83,6 +83,7 @@ export default function PlanCard({ plan }: PlanProps) {
           variant={plan.recommended ? "primary" : "tertiary"}
           className="w-full mt-auto py-2 overflow-hidden"
           href={whatsappUrl}
+          target="blank"
         >
           {t("choose", "Elegir Plan")}
         </Button>
