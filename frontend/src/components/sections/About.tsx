@@ -1,10 +1,14 @@
 // src/components/sections/About.tsx
-import { aboutStats } from "../../data/about";
 import { useTranslation } from "react-i18next";
 import { Reveal } from "../UI/Reveal";
 
 export default function About() {
   const { t } = useTranslation("about");
+  const aboutStats = [
+    { label: "experience", value: "5+" },
+    { label: "members", value: "200+" },
+    { label: "locations", value: "2" },
+  ];
 
   return (
     <section
@@ -60,15 +64,12 @@ export default function About() {
                 {/* Stats Grid con diseño adaptado al fondo claro */}
                 <div className="grid grid-cols-2 gap-8">
                   {aboutStats.map((stat) => (
-                    <div
-                      key={stat.id}
-                      className="border-l-4 border-primary pl-6 py-2 bg-white rounded-r-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                    >
+                    <div className="border-l-4 border-primary pl-6 py-2 bg-white rounded-r-lg shadow-sm hover:shadow-md transition-shadow duration-300">
                       <p className="text-4xl font-black text-zinc-900 mb-1">
                         {stat.value}
                       </p>
                       <p className="text-slate-500 uppercase text-xs font-bold tracking-widest">
-                        {t(`stat_${stat.id}`, stat.label)}
+                        {t(`${stat.label}`)}
                       </p>
                     </div>
                   ))}

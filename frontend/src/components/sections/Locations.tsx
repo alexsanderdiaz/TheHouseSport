@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { locations } from "../../data/locations";
-import ButtonSecondary from "../UI/ButtonSecondary";
+import Button from "../UI/Button";
 import { useSlider } from "../../hooks/useSlider";
 import { Reveal } from "../UI/Reveal"; // Importamos el componente de animación
 
@@ -66,7 +66,7 @@ function Locations() {
                         rel="noopener noreferrer"
                         className="inline-block"
                       >
-                        <ButtonSecondary>{t("check")}</ButtonSecondary>
+                        <Button variant="secondary">{t("check")}</Button>
                       </a>
                     </div>
                   </div>

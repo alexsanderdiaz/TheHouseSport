@@ -9,8 +9,14 @@ import {
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("footer");
   const year = new Date().getFullYear();
+  const schedule = [
+    { days: "mon_thu", hours: "05:00 - 22:00" },
+    { days: "friday", hours: "05:00 - 21:00" },
+    { days: "saturday", hours: "07:00 - 14:00" },
+    { days: "sun_holidays", hours: "08:00 - 13:00" },
+  ];
 
   return (
     <footer className="relative mt-20 border-t border-white/5">
@@ -25,10 +31,7 @@ export default function Footer() {
               THE HOUSE <span className="text-primary">SPORT</span>
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              {t(
-                "footer_description",
-                "Más que un gimnasio, una comunidad dedicada a transformar vidas a través de la disciplina y el entrenamiento inteligente.",
-              )}
+              {t("footer_description")}
             </p>
             <div className="flex gap-4">
               <a
@@ -45,7 +48,8 @@ export default function Footer() {
                 <FaFacebook size={20} />
               </a>
               <a
-                href="#"
+                href="https://wa.me/message/WAFVVTRBFYWTP1"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300"
               >
                 <FaWhatsapp size={20} />
@@ -56,7 +60,7 @@ export default function Footer() {
           {/* Columna 2: Enlaces Rápidos */}
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">
-              Explorar
+              {t("explore")}
             </h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li>
@@ -64,7 +68,7 @@ export default function Footer() {
                   href="#home"
                   className="hover:text-primary transition-colors"
                 >
-                  Inicio
+                  {t("start")}
                 </a>
               </li>
               <li>
@@ -72,7 +76,7 @@ export default function Footer() {
                   href="#about"
                   className="hover:text-primary transition-colors"
                 >
-                  Nosotros
+                  {t("we")}
                 </a>
               </li>
               <li>
@@ -80,7 +84,7 @@ export default function Footer() {
                   href="#services"
                   className="hover:text-primary transition-colors"
                 >
-                  Servicios
+                  {t("services")}
                 </a>
               </li>
               <li>
@@ -88,7 +92,7 @@ export default function Footer() {
                   href="#plans"
                   className="hover:text-primary transition-colors"
                 >
-                  Planes
+                  {t("plans")}
                 </a>
               </li>
             </ul>
@@ -97,7 +101,7 @@ export default function Footer() {
           {/* Columna 3: Contacto */}
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">
-              Contacto
+              {t("contact")}
             </h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
@@ -108,9 +112,14 @@ export default function Footer() {
                   Bogotá, Colombia
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <FaPhoneAlt className="text-secondary shrink-0" />
-                <span>+57 79 1234-5678</span>
+              <li className="flex items-center gap-3 group">
+                <FaPhoneAlt className="text-secondary shrink-0 group-hover:scale-110 transition-transform" />
+                <a
+                  href="tel:+573222185574"
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                >
+                  +57 322 218 5574
+                </a>
               </li>
             </ul>
           </div>
@@ -118,32 +127,33 @@ export default function Footer() {
           {/* Columna 4: Horarios */}
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-6">
-              Horarios
+              {t("hours")}
             </h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Lun - Vie:</span>
-                <span className="text-white font-medium">06:00 - 22:00</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Sábados:</span>
-                <span className="text-white font-medium">08:00 - 18:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Domingos:</span>
-                <span className="text-secondary font-bold text-[10px] uppercase">
-                  Cerrado
-                </span>
-              </li>
+              {schedule.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between border-b border-white/5 pb-2 group hover:border-primary/30 transition-colors"
+                >
+                  <span className="group-hover:text-gray-300 transition-colors">
+                    {t(item.days)}:
+                  </span>
+                  <span className="text-white font-bold tracking-tight">
+                    {item.hours}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Línea final de Copyright */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-[10px] uppercase tracking-[0.2em]">
-          <p>© {year} The House Sport. Todos los derechos reservados.</p>
           <p>
-            Diseñado y Desarrollado por{" "}
+            © {year} The House Sport. {t("rights")}
+          </p>
+          <p>
+            {t("design")}{" "}
             <a
               href="https://tu-portfolio.com"
               target="_blank"

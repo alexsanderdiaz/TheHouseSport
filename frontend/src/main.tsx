@@ -15,6 +15,8 @@ import services_en from "./translations/en/services.json";
 import services_es from "./translations/es/services.json";
 import about_en from "./translations/en/about.json";
 import about_es from "./translations/es/about.json";
+import footer_en from "./translations/en/footer.json";
+import footer_es from "./translations/es/footer.json";
 import App from "./App.tsx";
 
 i18n.init({
@@ -28,6 +30,7 @@ i18n.init({
       plans: plans_en,
       services: services_en,
       about: about_en,
+      footer: footer_en,
     },
     es: {
       home: home_es,
@@ -36,6 +39,7 @@ i18n.init({
       plans: plans_es,
       services: services_es,
       about: about_es,
+      footer: footer_es,
     },
   },
 });

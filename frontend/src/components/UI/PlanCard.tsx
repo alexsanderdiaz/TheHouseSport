@@ -1,12 +1,12 @@
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
+import Button from "./Button";
 
 interface PlanProps {
   plan: {
     id: number;
     name: string;
     price: string;
-    period: string;
     features: string[];
     recommended?: boolean;
   };
@@ -47,11 +47,8 @@ export default function PlanCard({ plan }: PlanProps) {
           </h3>
 
           <div className="flex items-baseline gap-1">
-            <span className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+            <span className="text-3xl md:text-5xl font-black text-white tracking-tighter">
               ${plan.price}
-            </span>
-            <span className="text-gray-500 text-sm uppercase font-bold tracking-widest">
-              / {plan.period}
             </span>
           </div>
         </div>
@@ -79,15 +76,12 @@ export default function PlanCard({ plan }: PlanProps) {
         </ul>
 
         {/* Botón */}
-        <button
-          className={`w-full py-4 rounded-2xl text-sm md:text-base font-black uppercase tracking-[0.15em] transition-all duration-300 active:scale-95 shadow-2xl ${
-            plan.recommended
-              ? "bg-primary text-white hover:shadow-primary/40 hover:brightness-110"
-              : "bg-white text-black hover:bg-gray-200"
-          }`}
+        <Button
+          variant={plan.recommended ? "primary" : "tertiary"}
+          className="py-2 md:py-2 mt-auto"
         >
-          {t("seleccionar", "Elegir Plan")}
-        </button>
+          {t("choose", "Elegir Plan")}
+        </Button>
       </div>
     </div>
   );

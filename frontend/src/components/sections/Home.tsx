@@ -1,5 +1,5 @@
 import videoBg from "../../assets/video/videoBg.mp4";
-import ButtonSecondary from "../UI/ButtonSecondary";
+import Button from "../UI/Button";
 import { useTranslation } from "react-i18next";
 
 function Home() {
@@ -44,7 +44,7 @@ function Home() {
           )}
         </p>
 
-        <ButtonSecondary>{t("start", "Comenzar ahora")}</ButtonSecondary>
+        <Button variant="secondary">{t("start", "Comenzar ahora")}</Button>
       </div>
     </section>
   );

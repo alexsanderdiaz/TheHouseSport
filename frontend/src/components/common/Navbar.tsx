@@ -65,6 +65,14 @@ function Navbar() {
         </div>
       </div>
 
+      {/* OVERLAY, controla la visibilidad del menú */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 h-screen w-screen bg-black/40 backdrop-blur-sm md:hidden"
+          onClick={() => setIsOpen(false)} // Aquí se cierra el menú al hacer clic fuera
+        />
+      )}
+
       {/* Dropdown Móvil */}
       <div
         className={`md:hidden absolute w-full left-0 transition-all duration-300 ease-in-out ${
