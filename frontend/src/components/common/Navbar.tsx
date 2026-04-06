@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ButtomLenguage from "./ButtomLenguage";
-import Button from "../UI/Button";
+import { Button } from "../UI/Button";
 import { useTranslation } from "react-i18next";
 import { navLinks } from "../../constants/navLinks";
 import { Link } from "react-router";

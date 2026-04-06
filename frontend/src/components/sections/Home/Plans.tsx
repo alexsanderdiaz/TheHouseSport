@@ -1,10 +1,10 @@
 // src/components/sections/Plans.tsx
-import { plans } from "../../data/plans";
-import PlanCard from "../UI/PlanCard";
-import CardSlider from "../UI/CardSlider";
+import { plans } from "../../../data/plans";
+import PlanCard from "../../UI/PlanCard";
+import CardSlider from "../../UI/CardSlider";
 import { SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
-import { Reveal } from "../UI/Reveal"; // Asegúrate de que la ruta sea correcta
+import { Reveal } from "../../UI/Reveal"; // Asegúrate de que la ruta sea correcta
 
 export default function Plans() {
   const { t } = useTranslation("plans");

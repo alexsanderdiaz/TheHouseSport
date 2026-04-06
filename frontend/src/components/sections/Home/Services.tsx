@@ -1,9 +1,9 @@
 // src/components/sections/Services.tsx
-import { services } from "../../data/services";
-import ServiceCard from "../UI/ServiceCard";
-import CardSlider from "../UI/CardSlider";
+import { services } from "../../../data/services";
+import ServiceCard from "../../UI/ServiceCard";
+import CardSlider from "../../UI/CardSlider";
 import { SwiperSlide } from "swiper/react";
-import { Reveal } from "../UI/Reveal"; // componente de animación
+import { Reveal } from "../../UI/Reveal"; // componente de animación
 import { useTranslation } from "react-i18next";
 
 export default function Services() {

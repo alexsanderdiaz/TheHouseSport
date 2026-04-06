@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { locations } from "../../data/locations";
-import Button from "../UI/Button";
-import { useSlider } from "../../hooks/useSlider";
-import { Reveal } from "../UI/Reveal"; // Importamos el componente de animación
+import { locations } from "../../../data/locations";
+import { Button } from "../../UI/Button";
+import { useSlider } from "../../../hooks/useSlider";
+import { Reveal } from "../../UI/Reveal"; // Importamos el componente de animación
 
 function Locations() {
   const { t } = useTranslation("locations");

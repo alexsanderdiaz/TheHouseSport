@@ -1,5 +1,5 @@
-import videoBg from "../../assets/video/videoBg.mp4";
-import Button from "../UI/Button";
+import videoBg from "../../../assets/video/videoBg.mp4";
+import { Button } from "../../UI/Button";
 import { useTranslation } from "react-i18next";
 
 function Home() {

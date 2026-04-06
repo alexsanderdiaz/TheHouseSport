@@ -1,8 +1,8 @@
-import About from "../components/sections/About";
-import Home from "../components/sections/Home";
-import Locations from "../components/sections/Locations";
-import Plans from "../components/sections/Plans";
-import Services from "../components/sections/Services";
+import About from "../components/sections/Home/About";
+import Home from "../components/sections/Home/Home";
+import Locations from "../components/sections/Home/Locations";
+import Plans from "../components/sections/Home/Plans";
+import Services from "../components/sections/Home/Services";
 
 function Homepage() {
   return (

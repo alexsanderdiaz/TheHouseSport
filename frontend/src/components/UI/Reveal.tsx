@@ -11,8 +11,8 @@ export const Reveal = ({ children, width = "100%" }: Props) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }} // Empieza invisible y 50px abajo
       whileInView={{ opacity: 1, y: 0 }} // Cuando entra en el scroll, sube y aparece
-      viewport={{ once: false, margin: "-100px" }} // Solo se anima una vez
-      transition={{ duration: 0.8, ease: "easeOut" }} // Animación suave de 0.8 seg
+      viewport={{ once: true, margin: "-100px" }} // Solo se anima una vez
+      transition={{ duration: 0.6, ease: "easeOut" }} // Animación suave de 0.8 seg
       style={{ width }}
     >
       {children}

@@ -1,6 +1,6 @@
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-import Button from "./Button";
+import { Button } from "./Button";
 
 interface PlanProps {
   plan: {
@@ -27,7 +27,7 @@ export default function PlanCard({ plan }: PlanProps) {
       }`}
     >
       {/* Contenido de la Card */}
-      <div className="bg-zinc-950 rounded-[1.9rem] p-6 md:p-10 pt-14 md:pt-16 h-full flex flex-col relative overflow-hidden">
+      <div className="bg-zinc-800 rounded-[1.9rem] p-6 md:p-10 pt-14 md:pt-16 h-full flex flex-col relative overflow-hidden">
         {/* Decoración de fondo sutil solo para recomendados */}
         {plan.recommended && (
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] -z-10" />

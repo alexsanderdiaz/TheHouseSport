@@ -6,14 +6,14 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rel?: string;
 }
 
-function Button({
+export const Button: React.FC<Props> = ({
   children,
   className,
   variant = "primary",
   href,
   target,
   ...props
-}: Props) {
+}) => {
   // Clases base que siempre tendrá el botón
   const baseClasses =
     "inline-flex items-center justify-center px-4 py-1 rounded-full transition-all transform hover:scale-105 font-bold uppercase tracking-wider text-sm border-2";
@@ -47,6 +47,4 @@ function Button({
       {children}
     </button>
   );
-}
-
-export default Button;
+};

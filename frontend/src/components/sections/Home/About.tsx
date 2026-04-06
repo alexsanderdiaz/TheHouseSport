@@ -1,6 +1,6 @@
 // src/components/sections/About.tsx
 import { useTranslation } from "react-i18next";
-import { Reveal } from "../UI/Reveal";
+import { Reveal } from "../../UI/Reveal";
 
 export default function About() {
   const { t } = useTranslation("about");
