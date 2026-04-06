@@ -10,14 +10,14 @@ export default function MainLayout() {
     <div className="relative min-h-screen w-full">
       {/* CAPA DE FONDO GLOBAL */}
       <div className="fixed inset-0 -z-50 bg-zinc-950 overflow-hidden">
-        {/* Orbe Azul (Primary) - Más intenso y definido */}
+        {/* Orbe Naranja (Primary) */}
         <div
           className="absolute -top-[5%] -right-[5%] w-[450px] md:w-[650px] h-[450px] md:h-[650px] 
                         bg-primary/40 rounded-full blur-[80px] md:blur-[110px] 
-                        animate-pulse-slow"
+                        opacity-50"
         />
 
-        {/* Orbe Naranja (Secondary) - Más intenso */}
+        {/* Orbe Azul (Secondary)*/}
         <div
           className="absolute top-[40%] -left-[10%] w-[350px] md:w-[550px] h-[350px] md:h-[550px] 
                         bg-secondary/30 rounded-full blur-[80px] md:blur-[110px] 

@@ -26,9 +26,6 @@ export default function Footer() {
 
   return (
     <footer className="relative mt-20 border-t border-white/5">
-      {/* Efecto de fondo: Un sutil desenfoque para que los orbes pasen por detrás */}
-      <div className="absolute inset-0 bg-zinc-950/60 backdrop-blur-xl -z-10" />
-
       <div className="container mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Columna 1: Branding */}
